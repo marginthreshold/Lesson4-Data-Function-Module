@@ -38,3 +38,4 @@ print(printed_polynomial)
 
 polinomial_file = open("polynomial_file.txt", "w")
 polinomial_file.writelines(printed_polynomial)
+polinomial_file.close
