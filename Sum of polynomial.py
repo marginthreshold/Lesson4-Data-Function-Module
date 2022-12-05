@@ -33,6 +33,20 @@ lst_one = [int(i) for i in line_one.split(" ")]
 lst_two = [int(i) for i in line_two.split(" ")]
 
 
+def add_degree(lst1, lst2):
+    dict_lst = 0
+    if lst1[1] > lst2[1]:
+        diff_lst = lst1[1]-lst2[1]
+        for i in range(0, diff_lst*2-1, 2):
+            lst2.insert(i, 0)
+            lst2.insert(i+1, lst1[1]-i)
+    elif lst1[1] < lst2[1]:
+        diff_lst = lst2[1]-lst1[1]
+        for i in range(0, diff_lst*2-1, 2):
+            lst1.insert(i, 0)
+            lst1.insert(i+1, lst2[1]-i)
+
+
 def net_polynominal(lst):
     new_lst = []
     count = lst[1]
@@ -65,6 +79,8 @@ def sum_polinomial(lst1, lst2):
     new_lst = [i+j for i, j in zip_longest(lst1, lst2, fillvalue=0)]
     return new_lst
 
+
+add_degree(lst_one, lst_two)
 
 lst_polynomial_one = net_polynominal(lst_one)
 print(lst_polynomial_one)
